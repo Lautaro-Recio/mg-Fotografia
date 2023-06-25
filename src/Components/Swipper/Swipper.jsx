@@ -33,7 +33,7 @@ export default function Swipper(props) {
                           <SwiperSlide key={imgs.img.result}>
                             <img
                               loading="lazy"
-                              className="w-full"
+                              className="w-full aspect[16/16]"
                               src={imgs.img.result}
                               alt="Img of Book"
                             />
