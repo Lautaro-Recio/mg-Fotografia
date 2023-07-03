@@ -6,10 +6,10 @@ export default function PhotoShow(props) {
     <>
       {HeaderImage && (
         <div className="h-screen w-screen">
-          <div className=" sticky justify-center mb-40 items-center overflow-hidden">
+          <div className=" sticky justify-center  items-center overflow-hidden">
             <img
               loading="lazy"
-              className=" w-full mt-2  h-screen  "
+              className="    mt-2  "
               src={HeaderImage}
               alt=""
             />

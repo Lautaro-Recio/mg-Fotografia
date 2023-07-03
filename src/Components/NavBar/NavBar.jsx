@@ -1,45 +1,68 @@
-import logo from "../assets/logo.png"
-import Menu from "../Icons/Menu"
-import Close from "../Icons/CloseX"
-import { useState } from "react"
-import NavLink from "./Navlink"
+import nav from "../assets/nav.jpg";
+import logo from "../assets/logo.png";
 
-const NavBar =() =>{
-    const [ClassOfNav, setClassOfNav] = useState("font-bold hidden w-2/5 h-full md:flex gap-4 md:ml-auto md:flex-row md:static md:gap-4 md:h-auto md:bg-transparent justify-center items-center pt-2 ")
+import Close from "../Icons/CloseX";
+import { useState } from "react";
+import NavLink from "./Navlink";
 
+const NavBar = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { isOpenModal } = { ...props };
+  const openMenu = () => {
+    setIsOpen(true);
+  };
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
-    const openMenu = ()=>{
-        setClassOfNav(" w-4/5 absolute bg-white top-0 left-0 h-full p-8 gap-y-5 flex flex-col md:flex gap-4 md:mr-auto md:flex-row md:static md:gap-4 md:p-0 md:h-auto z-10 ")
-    }
-    const closeMenu = ()=>{
-        setClassOfNav("hidden w-2/5 h-full md:flex gap-4 md:mr-auto md:flex-row md:static md:gap-4 md:p-0 md:h-auto")
-    }
+  return (
+    <>
+      {!isOpenModal &&
+        (isOpen ? (
+          <button className=" fixed top-4 right-6 z-50   " onClick={closeMenu}>
+            <p className="text-2xl">X</p>
+          </button>
+        ) : (
+          <button className=" fixed top-4 right-6 z-50   " onClick={openMenu}>
+            <ion-icon size="large" name="grid-outline"></ion-icon>{" "}
+          </button>
+        ))}
+      {!isOpenModal && (
+        <img src={logo} className="w-24 h-20 left-6 fixed  z-50 mt-2" alt="" />
+      )}
+      <header
+        className={`fixed bg-white  top-0 left-0 animation-all duration-700 md:flex gap-4 z-40 w-full overflow-hidden ${
+          isOpen ? "h-screen opacity-100" : "h-0 opacity-0"
+        }`}
+      >
+        <img
+          loading="lazy"
+          src={nav}
+          alt="logo sneakers"
+          className=" h-full w-2/6 "
+        />
+        <div className="">
+          <nav className="flex flex-col pt-2 mb-48">
+            <button onClick={closeMenu} className="mb-10 md:mb-0 md:hidden">
+              <Close />
+            </button>
+            <NavLink closeMenu={closeMenu} text={"INICIO"} />
+            <NavLink closeMenu={closeMenu} text={"¿QUIEN SOY?"} />
+            <NavLink closeMenu={closeMenu} text={"BOOKS"} />
+            <NavLink closeMenu={closeMenu} text={"GALERIA"} />
+            <NavLink closeMenu={closeMenu} text={"CONTACTO"} />
+          </nav>
+          <div className="ml-4 text-xl">
+            <a className="flex items-center gap-4" href="#">
+              <ion-icon size="large" name="logo-instagram"></ion-icon>
+              <p>/miligriguol_ph</p>
+            </a>
+            <p className="mt-4">milagrosgriguol.ph@gmail.com</p>
+          </div>
+        </div>
+      </header>
+    </>
+  );
+};
 
-    
-    return(
-        <>
-           <header className="absolute items-center flex container mx-auto gap-8 py-2 px-4 content-center z-10 bg-transparent">
-
-                <button className="md:hidden " onClick={openMenu}>   
-                    <Menu/>
-                </button>
-
-                <img loading="lazy" src={logo} alt="logo sneakers" className=" pb-0 mr-auto md:mr-0 w-24 ml-0 md:ml-24 " />
-                <nav className={ClassOfNav}>
-                    <button onClick={closeMenu} className="mb-10 md:mb-0 md:hidden">
-                        <Close/>
-                    </button>
-                    <NavLink text={"INICIO"}/>
-                    <NavLink text={"¿QUIEN SOY?"}/>
-                    <NavLink text={"BOOKS"}/>
-                    <NavLink text={"GALERIA"}/>
-                    <NavLink text={"CONTACTO"}/>
-                    
-                </nav>
-
-            </header>
-        </>
-    )
-}
-
-export default NavBar
+export default NavBar;

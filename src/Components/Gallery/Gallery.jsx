@@ -5,18 +5,18 @@ export default function Gallery(props) {
   const [bookOfModal, setBookOfModa] = useState([]);
   const [TitleOfModal, setTitleOfModa] = useState("");
   const [ImgOfModal, setImgOfModa] = useState("");
-
+  const [NoRepeat, setNoRepeat] = useState(false);
 
   const { BooksOnDB, setIsOpenModal, isOpenModal } = { ...props };
   const bodyChange = document.querySelector("#body");
-  
-  const openModal = (book,title,img) => {
+
+  const openModal = (book, title, img) => {
     /* Funcion para que el modal no se abra en dispositivos moviles */
     console.log(book);
     window.innerWidth > 767 && setIsOpenModal(true);
     setBookOfModa(book);
-    setTitleOfModa(title)
-    setImgOfModa(img)
+    setTitleOfModa(title);
+    setImgOfModa(img);
     window.scroll(0, 0);
     bodyChange.classList.add("overflow-hidden");
   };
@@ -26,9 +26,8 @@ export default function Gallery(props) {
     bodyChange.classList.remove("overflow-hidden");
     window.scrollTo("BOOKS");
   };
-
   return (
-    <div  id="BOOKS">
+    <div id="BOOKS">
       <h4 className="text-4xl text-center bold m-4">Books</h4>
       <div className="grid  gap-2 grid-cols-2 m-2  ">
         {BooksOnDB.map((book) => {
@@ -41,7 +40,13 @@ export default function Gallery(props) {
                     key={book.bookName}
                   >
                     <span
-                      onClick={() => openModal(book.imgs.book,book.bookName,book.imgs.book[3].img.result)}
+                      onClick={() =>
+                        openModal(
+                          book.imgs.book,
+                          book.bookName,
+                          book.imgs.book[3].img.result
+                        )
+                      }
                       className="h-96 w-full  bg-transparent-white peer hover:bg-transparent transition duration-300 cursor-pointer z-10 "
                     ></span>
                     {book.imgs.book.map((imgs, i) => {
@@ -67,8 +72,18 @@ export default function Gallery(props) {
                   </h4>
                 </div>
               )}
-              {isOpenModal && (
-                <Modal bookOfModal={bookOfModal} ImgOfModal={ImgOfModal} nameOfBook={TitleOfModal} closeModal={closeModal} />
+              
+              {(isOpenModal) && (
+                <>
+                  <Modal
+                    bookOfModal={bookOfModal}
+                    ImgOfModal={ImgOfModal}
+                    nameOfBook={TitleOfModal}
+                    closeModal={closeModal}
+                    setNoRepeat={setNoRepeat}
+                    />
+                    {console.log(NoRepeat)}
+                </>
               )}
             </>
           );

@@ -2,7 +2,7 @@ import NavBar from "./Components/NavBar/NavBar";
 import Gallery from "./Components/Gallery/Gallery";
 import QuienSoy from "./Components/QuienSoy/QuienSoy";
 import LoadingContainer from "./Components/Loading/LoadingContainer";
-
+import Footer from "./Components/Footer/Footer";
 import Swipper from "./Components/Swipper/Swipper";
 import { useEffect, useState } from "react";
 
@@ -36,7 +36,7 @@ export default function App() {
         <LoadingContainer />
       ) : (
         <>
-          <NavBar />
+          <NavBar isOpenModal={isOpenModal} />
           <Swipper BooksOnDB={BooksOnDB} />
           <QuienSoy />
           <Gallery
@@ -44,6 +44,7 @@ export default function App() {
             isOpenModal={isOpenModal}
             BooksOnDB={BooksOnDB}
           />
+          <Footer/>
         </>
       )}
     </div>

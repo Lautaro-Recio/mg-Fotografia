@@ -5,7 +5,7 @@ export default function ModalGallery(props) {
     const {image,btnSlider,bookOfModal,mapBook,next,prev} = {...props}
   return (
     <>
-      <div className="relative items-center justify-center  flex">
+      <div className="relative items-center justify-center h-screen overflow-hidden flex">
         <img src={image} className="h-screen py-10 drop-shadow-lg " alt="" />
         <div
           ref={btnSlider}
