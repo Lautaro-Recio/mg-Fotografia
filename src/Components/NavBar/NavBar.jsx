@@ -24,7 +24,7 @@ const NavBar = (props) => {
           </button>
         ) : (
           <button className=" fixed top-4 right-6 z-50   " onClick={openMenu}>
-            <ion-icon size="large" name="grid-outline"></ion-icon>{" "}
+            <ion-icon size="large" name="menu-outline"></ion-icon>{" "}
           </button>
         ))}
       {!isOpenModal && (

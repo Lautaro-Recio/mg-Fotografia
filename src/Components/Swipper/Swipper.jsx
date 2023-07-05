@@ -13,7 +13,7 @@ export default function Swipper(props) {
       {BooksOnDB.length > 0 && (
         <Swiper
           effect={"fade"}
-          className="h-screen "
+          className="md:h-screen "
           key={BooksOnDB.bookName}
           modules={[Navigation, Pagination, Autoplay, EffectFade]}
           spaceBetween={10}

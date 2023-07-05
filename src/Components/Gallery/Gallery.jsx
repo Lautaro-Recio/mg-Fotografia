@@ -29,7 +29,7 @@ export default function Gallery(props) {
   return (
     <div id="BOOKS">
       <h4 className="text-4xl text-center bold m-4">Books</h4>
-      <div className="grid  gap-2 grid-cols-2 m-2  ">
+      <div className="md:grid  md:gap-2 md:grid-cols-2 m-2  ">
         {BooksOnDB.map((book) => {
           return (
             <>

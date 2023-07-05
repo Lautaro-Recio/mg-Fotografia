@@ -9,6 +9,9 @@ export default {
       fontFamily:{
         "Caudex":["caudex","serif"]
       },
+      backgroundImage: {
+        'contact-bg': "url('/Components/assets/contacto.jpg')",
+      },
       colors:{
         "gray-primary":"white",
         "pale-orange": "hsl(25,100%,94%)",
