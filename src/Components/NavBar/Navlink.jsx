@@ -4,14 +4,10 @@ const NavLink = (props) => {
   return (
     <>
       <a
-        className="relative pb-2 bg-transparent cursor-pointer ml-8 my-2"
-        onClick={()=>{
-          closeMenu(),
-          window.scroll(()=>({
-            behavior: "smooth"
-          }))
-        }}
-      >
+        className="relative pb-2 bg-transparent cursor-pointer ml-8 my-4 md:my-2"
+        href={`#${text}`}
+        onClick={()=>closeMenu()}
+        >
         <span className="peer text-2xl hover:text-transparent-gray tracking-tight hover:tracking-wide transition-all ">
           {text}
         </span>

@@ -44,7 +44,7 @@ export default function App() {
             isOpenModal={isOpenModal}
             BooksOnDB={BooksOnDB}
           />
-          <Footer/>
+          <Footer BooksOnDB={BooksOnDB} />
         </>
       )}
     </div>

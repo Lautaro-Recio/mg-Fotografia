@@ -3,9 +3,12 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/tw-elements/dist/js/**/*.js"
   ],
+  plugins: [import("tw-elements/dist/plugin.cjs")],
   theme: {
     extend: {
+      safelist: ['animate-[fade-in-down_1s_ease-in-out]', 'animate-[fade-out-down_1s_ease-in-out]'],
       fontFamily:{
         "Caudex":["caudex","serif"]
       },
@@ -23,5 +26,5 @@ export default {
       }
     },
   },
-  plugins: [],
+
 }

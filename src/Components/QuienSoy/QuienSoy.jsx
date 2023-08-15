@@ -3,14 +3,15 @@ import fotografaRandom from "../assets/fotografaRandom.jpeg";
 export default function QuienSoy() {
   return (
     <div className="">
-      <h4 className="text-4xl text-center bold m-4">¿Quien soy?</h4>
-
       <div className="md:grid md:grid-cols-2 ">
+      <h4 className="text-4xl md:hidden block text-left  border-b-2 border-black py-4   bold m-4 ">¿Quien soy?</h4>
+
         <div>
           <img loading="lazy" src={fotografaRandom} alt="" />
         </div>
-        <div className="sticky flex justify-center items-center">
-          <p className="md:p-14 px-4 m-4 ">
+        <div className="sticky block py-4 justify-center items-center">
+          <h4 className="text-4xl md:block hidden text-end  border-b-2 border-black py-4 mx-20  bold m-4 ">¿Quien soy?</h4>
+          <p className="md:px-14 md:py-10 px-4 m-4 ">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
             eum mollitia provident praesentium suscipit recusandae excepturi, a
             repudiandae qui pariatur nam dolores rerum eius adipisci nesciunt ab
