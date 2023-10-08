@@ -8,7 +8,7 @@ const NavLink = (props) => {
         href={`#${text}`}
         onClick={()=>closeMenu()}
         >
-        <span className="peer text-2xl hover:text-transparent-gray tracking-tight hover:tracking-wide transition-all ">
+        <span className="peer text-2xl hover:text-transparent-gray font-Montserrat tracking-wide transition-all ">
           {text}
         </span>
         {/* peer-hover es para agrupar un hover entre dos elementos */}

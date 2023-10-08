@@ -4,6 +4,7 @@ import { Autoplay, EffectFade, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/autoplay";
+import FadeIn from "./FadeIn";
 export default function Swipper(props) {
   /* GRAFICAR IMGS EN EL SLIDER */
   const { BooksOnDB } = { ...props };
@@ -35,6 +36,7 @@ export default function Swipper(props) {
                             className="hidden md:block"
                             key={imgs.img.result}
                           >
+                            <FadeIn/>
                             <img
                               loading="lazy"
                               className="w-full aspect[16/16] hidden md:block"

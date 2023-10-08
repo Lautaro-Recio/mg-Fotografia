@@ -2,38 +2,34 @@ import fotografaRandom from "../assets/fotografaRandom.jpeg";
 
 export default function QuienSoy() {
   return (
-    <div className="">
+    <div id="¿QUIEN SOY?" className="">
       <div className="md:grid md:grid-cols-2 ">
-      <h4 className="text-4xl md:hidden block text-left  border-b-2 border-black py-4   bold m-4 ">¿Quien soy?</h4>
+        <h4 className="text-4xl md:hidden block text-left  border-b-2 border-black py-4   bold m-4 ">
+          ¿Quien soy?
+        </h4>
 
         <div>
           <img loading="lazy" src={fotografaRandom} alt="" />
         </div>
         <div className="sticky block py-4 justify-center items-center">
-          <h4 className="text-4xl md:block hidden text-end  border-b-2 border-black py-4 mx-20  bold m-4 ">¿Quien soy?</h4>
-          <p className="md:px-14 md:py-10 px-4 m-4 ">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
-            eum mollitia provident praesentium suscipit recusandae excepturi, a
-            repudiandae qui pariatur nam dolores rerum eius adipisci nesciunt ab
-            necessitatibus! In, quidem! Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Consectetur deserunt repellat ipsa neque
-            veritatis, placeat unde? Asperiores blanditiis impedit nobis atque
-            tempora, delectus deserunt pariatur, esse id tenetur ratione
-            quaerat! Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Earum nam sapiente eligendi. Eaque perferendis voluptates, hic animi
-            eligendi cumque sit, non quia, sequi rerum rem eum neque commodi
-            totam voluptas! Rerum vel veniam commodi obcaecati harum. Dolore
-            esse cupiditate illo pariatur dignissimos molestiae temporibus
-            veritatis ad fuga impedit delectus, odio repellat accusamus magni
-            hic. Voluptatibus quo sapiente minus eius voluptatem! Unde vero
-            veritatis est ea perferendis magnam. Debitis nesciunt distinctio
-            sapiente eius veritatis laborum mollitia eveniet incidunt, aut
-            molestiae quia animi at magnam porro laudantium tempore modi.
-            Temporibus, tempora quas. Consequatur eum ad blanditiis esse?
-            Molestiae officiis quidem, dolores cumque fugiat expedita!
-            Veritatis, dignissimos! Quia facilis commodi reiciendis magni
-            maiores ea amet asperiores, fugit excepturi, non sint cupiditate
-            modi quidem?
+          <h4 className="text-3xl text-[#898269] uppercase md:block hidden text-end  border-b-2 border-[#898269] py-4 mx-20  m-4 ">
+            ¿Quien soy?
+          </h4>
+          <p className="md:px-20 md:py-10 text-xl tracking-wider    px-4 m-4 ">
+            Bienvenidos, mi nombre es Milagros Griguol , fotografa especializada
+            en moda y retrato. La fotografia es la posibilidad de poder captar
+            la belleza en los pequeños detalles, brindando la oportunidad de
+            contar historias unicas a traves de las imagenes. El retrato
+            fotografico permite capturar la humanidad en su forma más cruda y
+            auténtica. Es un medio para congelar momentos y preservar cada
+            rostro con su propia historia, expresiones y singularidad de cada
+            persona. Ademas, el poder combinar el mundo de la moda, a la que
+            considero arte en movimiento constante, con mi pasion por la
+            fotografia, me permitie capturar en cada sesion la escencia de la
+            misma y la excelencia de sus productos. Cada clic de mi cámara es un
+            intento de detener el tiempo y compartir la magia que veo a través
+            del objetivo. Espero que disfrutes explorando mi trabajo tanto como
+            disfruto creándolo!
           </p>
         </div>
       </div>

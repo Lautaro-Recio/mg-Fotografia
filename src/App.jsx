@@ -5,11 +5,27 @@ import LoadingContainer from "./Components/Loading/LoadingContainer";
 import Footer from "./Components/Footer/Footer";
 import Swipper from "./Components/Swipper/Swipper";
 import { useEffect, useState } from "react";
-
+import Modal from "./Components/Gallery/Modal";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 export default function App() {
+  const [bookOfModal, setBookOfModa] = useState([]);
+  const [TitleOfModal, setTitleOfModa] = useState("");
+  const [ImgOfModal, setImgOfModa] = useState("");
+  const [parraf, setParraf] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const bodyChange = document.querySelector("#body");
+
+  const openModal = (book, title, img, p) => {
+    /* Funcion para que el modal no se abra en dispositivos moviles */
+    window.innerWidth > 767 && setIsOpenModal(true);
+    setBookOfModa(book);
+    setTitleOfModa(title);
+    setImgOfModa(img);
+    setParraf(p);
+    window.scroll(0, 0);
+    bodyChange.classList.add("overflow-hidden");
+  };
   const [BooksOnDB, setBooksOnDB] = useState([]);
   const getData = async () => {
     const dbCollection = await getDocs(collection(db, "books"));
@@ -31,19 +47,26 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`font-Caudex  overflow-hidden `}>
+    <div className={`font-Montserrat tracking-wider overflow-hidden `}>
       {BooksOnDB.length === 0 ? (
         <LoadingContainer />
       ) : (
         <>
-          <NavBar isOpenModal={isOpenModal} />
+          <NavBar />
           <Swipper BooksOnDB={BooksOnDB} />
           <QuienSoy />
-          <Gallery
-            setIsOpenModal={setIsOpenModal}
-            isOpenModal={isOpenModal}
-            BooksOnDB={BooksOnDB}
-          />
+          <Gallery openModal={openModal} BooksOnDB={BooksOnDB} />
+          {isOpenModal && (
+            <>
+              <Modal
+                bookOfModal={bookOfModal}
+                ImgOfModal={ImgOfModal}
+                nameOfBook={TitleOfModal}
+                setIsOpenModal={setIsOpenModal}
+                parraf={parraf}
+              />
+            </>
+          )}
           <Footer BooksOnDB={BooksOnDB} />
         </>
       )}

@@ -21,10 +21,10 @@ export default function Footer() {
   getFooter();
 
   return (
-    <div id="#CONTACTO" className={`h-screen mb-2 mt-10 md:p-4 `}>
-      <div className="md:grid md:grid-cols-3 md:px-10 px-4 md:text-left text-center justify-center ">
+    <div id="CONTACTO" className={`h-screen mb-2 mt-10 md:p-4 `}>
+      <div className=" font-Montserrat md:grid md:grid-cols-3 md:px-10 px-4 md:text-left text-center justify-center ">
         <div className="md:py-4 z-10 md:col-span-2  md:px-8 ">
-          <h4 className="text-center text-3xl pt-4 mb-10 z-0 border-b-2 pb-4 border-black">
+          <h4 className="text-center font-Caudex uppercase text-3xl pt-4 mb-10 z-0 border-b-2 pb-4 border-black">
             Contacto
           </h4>
           <p className="text-xl text-center mb-4">

@@ -10,7 +10,9 @@ export default {
     extend: {
       safelist: ['animate-[fade-in-down_1s_ease-in-out]', 'animate-[fade-out-down_1s_ease-in-out]'],
       fontFamily:{
-        "Caudex":["caudex","serif"]
+        "Caudex":["caudex","serif"],
+        "Montserrat":['Quicksand',"normal"]
+
       },
       backgroundImage: {
         'contact-bg': "url('/Components/assets/contacto.jpg')",

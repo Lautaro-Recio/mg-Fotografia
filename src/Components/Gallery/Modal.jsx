@@ -3,12 +3,20 @@ import ModalGallery from "./ModalGallery";
 import PhotoShow from "./PhotoShow";
 
 export default function Modal(props) {
-  const { bookOfModal, closeModal, nameOfBook, ImgOfModal, parraf } = { ...props };
+  const { bookOfModal, nameOfBook, setIsOpenModal, ImgOfModal, parraf } = {
+    ...props,
+  };
   const [mapBook, setmapBook] = useState([]);
   useEffect(() => {
     setmapBook(bookOfModal);
-    
   }, [bookOfModal]);
+  const bodyChange = document.querySelector("#body");
+
+  const closeModal = () => {
+    /* Funcion para que el modal no se abra en dispositivos moviles */
+    setIsOpenModal(false);
+    bodyChange.classList.remove("overflow-hidden");
+  };
 
   const [image, setImage] = useState("");
   const [indexImage, setindexImage] = useState(0);
@@ -32,16 +40,20 @@ export default function Modal(props) {
   };
 
   const openGallery = (image, index) => {
-    setImage(image)
+    setImage(image);
     setindexImage(index);
     setGallery(true);
   };
   return (
-    <div className={`absolute md:w-full flex h-screen p-0  top-0 z-40 ${!gallery ? "overflow-y-scroll": "overflow-hidden"}`}>
+    <div
+      className={`absolute md:w-full flex h-screen p-0  top-0 z-40 ${
+        !gallery ? "overflow-y-scroll" : "overflow-hidden"
+      }`}
+    >
       <div>
         <button
           onClick={closeModal}
-          className="z-20 text-2xl top-4 left-8 bg-[#63636338] w-10 h-10 rounded-full  text-white fixed  hover:text-black transtion-all duration-300 "
+          className="z-20 text-2xl top-20 left-9 bg-[#63636338] w-10 h-10 rounded-full  text-white fixed  hover:text-black transtion-all duration-300 "
         >
           X
         </button>
@@ -49,11 +61,10 @@ export default function Modal(props) {
           <>
             <button
               onClick={() => backToGallery()}
-              className="z-20 text-2xl top-4 right-7 bg-[#63636338] w-10 h-10 rounded-full  text-white fixed hover:text-black transtion-all duration-300  "
+              className="z-20 text-2xl top-20 right-9 bg-[#63636338] w-10 h-10 rounded-full  text-white fixed hover:text-black transtion-all duration-300  "
             >
               ←
             </button>
-            
           </>
         )}
       </div>

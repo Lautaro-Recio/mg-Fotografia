@@ -8,7 +8,7 @@ export default function ModalGallery(props) {
       <p className="z-20 text-xl bottom-0 right-7 text-[#1f1f1f99] absolute ">
         {indexImage + 1}/{mapBook.length}
       </p>
-      <p className="z-20 text-xl bottom-0 left-4 text-[#1f1f1f99] absolute ">
+      <p className="z-20 uppercase text-xl bottom-0 left-4 text-[#1f1f1f99] absolute ">
         {nameOfBook}
       </p>
       <div className="relative items-center justify-center h-screen overflow-hidden flex">

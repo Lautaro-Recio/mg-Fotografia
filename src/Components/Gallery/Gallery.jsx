@@ -1,14 +1,6 @@
-import { useState } from "react";
-import Modal from "./Modal";
 
 export default function Gallery(props) {
-  const [bookOfModal, setBookOfModa] = useState([]);
-  const [TitleOfModal, setTitleOfModa] = useState("");
-  const [ImgOfModal, setImgOfModa] = useState("");
-  const [parraf, setParraf] = useState("");
-
-  const { BooksOnDB, setIsOpenModal, isOpenModal } = { ...props };
-  const bodyChange = document.querySelector("#body");
+  const { BooksOnDB, openModal } = { ...props };
   BooksOnDB.sort((a, b) => {
     if (a.imgs.order > b.imgs.order) {
       return 1;
@@ -18,31 +10,14 @@ export default function Gallery(props) {
     }
     return 0;
   });
-  const openModal = (book, title, img,p) => {
-    /* Funcion para que el modal no se abra en dispositivos moviles */
-    window.innerWidth > 767 && setIsOpenModal(true);
-    setBookOfModa(book);
-    setTitleOfModa(title);
-    setImgOfModa(img);
-    setParraf(p)
-    window.scroll(0, 0);
-    bodyChange.classList.add("overflow-hidden");
-  };
-  const closeModal = () => {
-    /* Funcion para que el modal no se abra en dispositivos moviles */
-    setIsOpenModal(false);
-    bodyChange.classList.remove("overflow-hidden");
-    window.scrollTo("BOOKS");
-  };
 
-
-
-
-
+  //SEIS BOOKS POR ESO SE REPITE EL COMPONENTE
   /* CENTRAR SECCION DE GALLERY */
   return (
-    <div id="#PROYECTOS">
-      <h4 className="text-4xl text-center bold m-4">Books</h4>
+    <div id="PORTFOLIO">
+      <h4 className="text-4xl text-center uppercase p-2 text-[#898269] border-b-2 border-[#898269] mx-24 bold my-4">
+        Portfolio
+      </h4>
       <div className="md:grid  md:gap-2 md:grid-cols-2 m-2   ">
         {BooksOnDB.map((book) => {
           return (
@@ -50,7 +25,7 @@ export default function Gallery(props) {
               {book.imgs.order !== 0 && (
                 <div>
                   <div
-                    className="flex sticky   max-w-[40rem] overflow-hidden m-4 "
+                    className="flex sticky overflow-hidden m-4 "
                     key={book.bookName}
                   >
                     <span
@@ -62,7 +37,7 @@ export default function Gallery(props) {
                           book.imgs.parraf
                         )
                       }
-                      className="h-96 w-full  bg-transparent-white peer hover:bg-transparent transition duration-300 cursor-pointer z-10 "
+                      className="h-96 w-full  peer hover:bg-transparent transition duration-300 cursor-pointer z-10 "
                     ></span>
                     <img
                       loading="lazy"
@@ -79,22 +54,10 @@ export default function Gallery(props) {
                       alt={book.imgs.presentation1}
                     />
                   </div>
-                  <h4 className="text-center text-2xl m-4  ">
+                  <h4 className="text-center uppercase text-2xl m-4  ">
                     {book.bookName}
                   </h4>
                 </div>
-              )}
-
-              {isOpenModal && (
-                <>
-                  <Modal
-                    bookOfModal={bookOfModal}
-                    ImgOfModal={ImgOfModal}
-                    nameOfBook={TitleOfModal}
-                    closeModal={closeModal}
-                    parraf={parraf}
-                  />
-                </>
               )}
             </>
           );

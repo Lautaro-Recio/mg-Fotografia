@@ -24,7 +24,7 @@ export default function PhotoShow(props) {
               alt=""
             />
             <div className=" absolute bg-white w-full md:w-2/4 h-[60%] md:h-[40%] md:p-6 p-2 md:left-10 top-[60%]">
-              <h4 className="md:text-3xl text-2xl md:mb-2">{nameOfBook}</h4>
+              <h4 className="md:text-3xl uppercase text-2xl md:mb-2">{nameOfBook}</h4>
               <p className=" p-2 text-base">
                 {parraf}
               </p>
@@ -33,13 +33,14 @@ export default function PhotoShow(props) {
           <div className="md:columns-3 block gap-x-6 py-16 [break-inside:avoid] p-4 md:p-20">
             {mapBook.map((imgs, i) => {
               return (
-                <img
+                <img 
+                  
                   loading="lazy"
                   className="mb-4 cursor-pointer hover:scale-105 transition-all duration-500"
                   onClick={() => openGallery(imgs.img.result, i, true)}
-                  key={imgs.img.i}
+                  key={imgs.img.result}
                   src={imgs.img.result}
-                  alt={imgs.img.result}
+                  alt={imgs.img.nameOfImg}
                 />
               );
             })}

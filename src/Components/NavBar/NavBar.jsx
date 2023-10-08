@@ -5,8 +5,9 @@ import NavLink from "./Navlink";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../firebase";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const [data, setData] = useState("");
+
   const getFooter = async () => {
     const dbCollection = await getDocs(collection(db, "books"));
     try {
@@ -24,7 +25,7 @@ const NavBar = (props) => {
   };
   getFooter();
   const [isOpen, setIsOpen] = useState(false);
-  const { isOpenModal } = { ...props };
+
   const openMenu = () => {
     setIsOpen(true);
   };
@@ -34,25 +35,23 @@ const NavBar = (props) => {
 
   return (
     <>
-       
-      <div className="flex fixed justify-between px-4 z-50 w-full">
-        <>
+      <div className="flex  fixed justify-between px-4 z-50 w-full">
+        <a href="#INICIO">
           <img
             src={logo}
             className="md:w-20 w-20 md:h-18 h-16 md:left-6 left-2   z-50 mt-2"
             alt=""
           />
-        </>
-        {!isOpenModal &&
-          (isOpen ? (
-            <button className="w-8" onClick={closeMenu}>
-              <p className="text-2xl">X</p>
-            </button>
-          ) : (
-            <button className="w-8" onClick={openMenu}>
-              <ion-icon size="large" name="menu-outline"></ion-icon>
-            </button>
-          ))}
+        </a>
+        {isOpen ? (
+          <button className="w-8 mr-6" onClick={closeMenu}>
+            <p className="text-2xl">X</p>
+          </button>
+        ) : (
+          <button className="w-8 mr-6" onClick={openMenu}>
+            <ion-icon size="large" name="menu-outline"></ion-icon>
+          </button>
+        )}
       </div>
       <header
         className={`fixed bg-white  top-0 left-0 animation-all duration-700 md:flex gap-4 z-40 w-full overflow-hidden ${
@@ -71,7 +70,7 @@ const NavBar = (props) => {
           <nav className="flex flex-col w-full md:pt-2 mb-36 mt-24">
             <NavLink closeMenu={closeMenu} text={"INICIO"} />
             <NavLink closeMenu={closeMenu} text={"¿QUIEN SOY?"} />
-            <NavLink closeMenu={closeMenu} text={"PROYECTOS"} />
+            <NavLink closeMenu={closeMenu} text={"PORTFOLIO"} />
             <NavLink closeMenu={closeMenu} text={"CONTACTO"} />
           </nav>
           <div className="flex text-xl w-full justify-items-end place-items-end p-4 md:p-0 ">
