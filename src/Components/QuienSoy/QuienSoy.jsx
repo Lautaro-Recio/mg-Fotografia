@@ -1,4 +1,4 @@
-import fotografaRandom from "../assets/fotografaRandom.jpeg";
+import fotografa from "../assets/mg.jpg";
 
 export default function QuienSoy() {
   return (
@@ -9,7 +9,7 @@ export default function QuienSoy() {
         </h4>
 
         <div>
-          <img loading="lazy" src={fotografaRandom} alt="" />
+          <img loading="lazy" className="p-20" src={fotografa} alt="" />
         </div>
         <div className="sticky block py-4 justify-center items-center">
           <h4 className="text-3xl text-[#898269] uppercase md:block hidden text-end  border-b-2 border-[#898269] py-4 mx-20  m-4 ">
